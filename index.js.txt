@@ -1,0 +1,52 @@
+index.js
+//node server that will handle socket io connections
+const io= require('socket.io')(8000)
+console.log('nhiihi')
+
+const users= {};
+//jaise hi ek connection aye arrow function ko run krdo
+
+io.on ('connection',socket =>{
+    //IO SARE CONNECTIONS HANDLE KRTA HAI OR SOCKET.ON SIRF EK PARTICULAR CONNECTION
+    //new-user-joined is just an event name not gonna affect anything
+   socket.on('new-user-joined',name =>{
+    console.log("New-user",name )
+    users[socket.id]=name; 
+    //broadacast new memeber joined except him
+    socket.broadcast.emit('user-joned',name);
+
+   });
+   socket.on('send',message =>{
+    //event recieve
+    socket.broadcast.emit('recieve',{message:message, name: users[socket.id]})
+   });
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

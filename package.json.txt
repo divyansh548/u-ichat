@@ -1,0 +1,16 @@
+package.json(code below)
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "This is a node server for our u&i chat application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "\"Divyansh\"",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.5.4"
+  }
+}
